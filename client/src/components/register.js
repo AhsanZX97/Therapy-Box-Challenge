@@ -83,12 +83,9 @@ class Register extends Component {
                             onChange={this.onChange}
                         />
                     </div>
-                    <button
-                        type="submit"
-                        className="btn btn-lg btn-primary btn-block"
-                    >
+                    <button type="submit">
                         Register!
-              </button>
+                    </button>
                 </form>
             </div>
         )

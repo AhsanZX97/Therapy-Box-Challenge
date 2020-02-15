@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import jwt_decode from 'jwt-decode'
+import { Link, withRouter } from 'react-router-dom'
 
 import Weather from './weather'
 
@@ -34,16 +35,24 @@ class Dashboard extends Component {
                     <Weather />
                 </div>
                 <div>
-                    <p>News</p>
+                    <Link to="/news">
+                        <p>News</p>
+                    </Link>
                 </div>
                 <div>
+                <Link to="/football">
                     <p>Sport</p>
+                </Link>
                 </div>
                 <div>
-                    <p>Photos</p>
+                    <Link to="/photos">
+                        <p>Photos</p>
+                    </Link>
                 </div>
                 <div>
-                    <p>Tasks</p>
+                    <Link to="/tasks">
+                        <p>Tasks</p>
+                    </Link>
                 </div>
                 <div>
                     <p>Clothes</p>
@@ -53,4 +62,4 @@ class Dashboard extends Component {
     }
 }
 
-export default Dashboard
+export default withRouter(Dashboard)

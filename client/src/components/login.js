@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { login } from './userFunctions'
+import { login } from './functions'
 import { Link, withRouter } from 'react-router-dom'
 
 

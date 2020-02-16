@@ -12,6 +12,17 @@ var Users = require('./routes/Users')
 
 app.use('/users', Users)
 
+// An api endpoint that returns a short list of items
+app.get('/football', (req, res) => {
+    const csvFilePath = './database/I1.csv'
+    const csv = require('csvtojson')
+    csv()
+        .fromFile(csvFilePath)
+        .then((jsonObj) => {
+            res.send(jsonObj)
+        })
+});
+
 app.listen(port, () => {
     console.log("Server is running on port: " + port)
 })

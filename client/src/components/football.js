@@ -1,6 +1,4 @@
 import React, { Component, Input, Button } from 'react'
-import { football } from './functions'
-
 
 class Football extends Component {
     constructor(props) {
@@ -12,11 +10,6 @@ class Football extends Component {
         }
 
         this.handleSearchChange = this.handleSearchChange.bind(this);
-    }
-
-    // Fetch the list on first mount
-    componentDidMount() {
-        this.getList();
     }
 
     // Retrieves the list of items from the Express app

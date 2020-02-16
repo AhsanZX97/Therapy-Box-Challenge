@@ -23,13 +23,30 @@ class Football extends Component {
     getList = () => {
         fetch('/football')
             .then(res => res.json())
-            .then(after => console.log(after))
+            .then(list => {
+                console.log(list)
+                var arr = []
+                for (var i = 0; i < list.length; i++) {
+                    if (list[i]["HomeTeam"] === this.state.teamName)
+                        if (list[i]["FTR"] === "H")
+                            arr.push(list[i]["AwayTeam"])
+                    if (list[i]["AwayTeam"] === this.state.teamName)
+                        if (list[i]["FTR"] === "A")
+                            arr.push(list[i]["HomeTeam"])
+                }
+                this.setState({won: arr})
+            })
     }
 
     handleSearchChange(e) {
-        this.setState({teamName: e.target.value});
+        this.setState({ teamName: e.target.value });
     }
 
+
+    mySubmitHandler = (e) => {
+        e.preventDefault();
+        this.getList();
+    }
 
     render() {
         return (
@@ -44,9 +61,12 @@ class Football extends Component {
                         type='submit'
                     />
                 </form>
-                
+
                 <p>These teams you won against:</p>
-                {this.state.won}
+                <ol>
+                    {this.state.won.map(team => <li>{team}</li>)}
+                </ol>
+                
             </div>
         )
     }

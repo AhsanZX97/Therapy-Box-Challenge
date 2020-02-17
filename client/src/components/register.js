@@ -5,8 +5,7 @@ class Register extends Component {
     constructor() {
         super()
         this.state = {
-            first_name: '',
-            last_name: '',
+            username: '',
             email: '',
             password: '',
             errors: {}
@@ -23,8 +22,7 @@ class Register extends Component {
         e.preventDefault()
 
         const newUser = {
-            first_name: this.state.first_name,
-            last_name: this.state.last_name,
+            username: this.state.username,
             email: this.state.email,
             password: this.state.password
         }
@@ -36,33 +34,22 @@ class Register extends Component {
 
     render() {
         return (
-            <div className="container">
+            <div>
                 <form noValidate onSubmit={this.onSubmit}>
                     <h1>Register</h1>
                     <div className="form-group">
-                        <label htmlFor="name">First name</label>
+                        <label htmlFor="name">Username</label>
                         <input
                             type="text"
                             className="form-control"
-                            name="first_name"
+                            name="username"
                             placeholder="Enter your first name"
-                            value={this.state.first_name}
+                            value={this.state.username}
                             onChange={this.onChange}
                         />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="name">Last name</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            name="last_name"
-                            placeholder="Enter your lastname name"
-                            value={this.state.last_name}
-                            onChange={this.onChange}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="email">Email address</label>
+                        <label htmlFor="email">Email</label>
                         <input
                             type="email"
                             className="form-control"
